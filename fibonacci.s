@@ -15,23 +15,23 @@ main:
 	
 	# Prompt the user for input
 	ldr x0, =input_prompt
-  bl printf
+  	bl printf
 
 	# Read the user's input (integer) into the stack location
 	ldr x0, =input_spec
 	mov x1, sp 
-  bl scanf
+  	bl scanf
 
 	# Load the input value into w0
 	ldr w0, [sp]
 	
  	# Check if input > 10
 	cmp w0, 10
-  bgt BaseCaseError      
+  	bgt BaseCaseError      
 	
 	# Check if input < 1
 	cmp w0, 1
-  blt BaseCaseError         
+  	blt BaseCaseError         
 
 	# Call Fibonacci function
 	bl Fibonacci
@@ -41,8 +41,8 @@ main:
 	
 	# Print the result returned by Fibonacci (in w0)
 	mov x1, x0               
-  ldr x0, =fib    
-  bl printf
+  	ldr x0, =fib    
+  	bl printf
 
 	b exit
 		
@@ -83,8 +83,8 @@ Fibonacci:
 # Print out-of-bounds error message and exit
 BaseCaseError:
 	ldr x0, =oob_mess
-  bl printf
-  b exit
+  	bl printf
+  	b exit
 
 # Fib(2) = 1
 BaseCase1:
